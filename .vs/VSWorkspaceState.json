@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\components",
+    "\\src\\app\\components\\dashboard",
+    "\\src\\app\\components\\forgot-password",
+    "\\src\\app\\shared",
+    "\\src\\app\\shared\\services",
+    "\\src\\assets",
+    "\\src\\environments"
+  ],
+  "SelectedNode": "\\src\\app\\components\\sign-up\\sign-up.component.spec.ts",
+  "PreviewInSolutionExplorer": false
+}
