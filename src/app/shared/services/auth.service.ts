@@ -40,7 +40,7 @@ export class AuthService {
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
         this.ngZone.run(() => {
-          window.alert('you are logged in ');
+          window.alert('You are logged in seccessfully !');
           this.router.navigate(['dashboard']);
         });
         this.SetUserData(result.user);
@@ -59,8 +59,7 @@ export class AuthService {
         up and returns promise */
         this.SendVerificationMail();
         this.SetUserData(result.user);
-        window.alert('account created');
-        this.router.navigate(['sign-in']);
+        window.alert('account created .');
       })
       .catch((error) => {
         window.alert(error.message);
