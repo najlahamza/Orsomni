@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from '../services/auth-services';
+import { AuthService } from '../../shared/services/auth-service';
 
 @Component({
   selector: 'app-register',
@@ -7,26 +7,22 @@ import { AuthenticationService } from '../services/auth-services';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  Roles: any = ['Admin', 'Author', 'Reader'];
-  constructor() { }
-  email: string;
- password: string;
-  signUp() {
-    this.authenticationService.SignUp(this.email, this.password);
-    this.email = '';
-    this.password = '';
-    }
+
+  constructor(public authService: AuthService) { 
+    //this.authService.SignUp("najla","0000")
+  }
     
-    signIn() {
-    this.authenticationService.SignIn(this.email, this.password);
-    this.email = '';
-    this.password = '';
-    }
-    
-    signOut() {
-    this.authenticationService.SignOut();
-    }
   ngOnInit(): void {
   }
+
+/*  onSubmit(formData:any) {
+    if (formData.valid) {
+      console.log(formData.value);
+      this.authService.SignUp(
+        formData.value.email,
+        formData.value.password
+      );
+    }
+  }*/
 
 }
