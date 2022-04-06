@@ -7,6 +7,7 @@ import {
   AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
+import { Observable, of, switchMap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -14,12 +15,24 @@ import { Router } from '@angular/router';
 export class AuthService {
   userData: any; // Save logged in user data
 
+  user$:Observable<User| null | undefined>;
+
   constructor(
     public afs: AngularFirestore, // Inject Firestore service
     public afAuth: AngularFireAuth, // Inject Firebase auth service
     public router: Router,
     public ngZone: NgZone // NgZone service to remove outside scope warning
   ) {
+
+    this.user$=this.afAuth.authState.pipe(
+      switchMap(user => {
+          if(user){
+            return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
+          }else{
+            return of(null);
+          }
+      })
+    );
     /* Saving user data in localstorage when 
     logged in and setting up null when logged out */
     this.afAuth.authState.subscribe((user) => {
@@ -27,11 +40,30 @@ export class AuthService {
         this.userData = user;
         localStorage.setItem('user', JSON.stringify(this.userData));
         JSON.parse(localStorage.getItem('user')!);
+        this.afs.doc<User>(`Users/${user.uid}`).valueChanges();
       } else {
         localStorage.setItem('user', 'null');
         JSON.parse(localStorage.getItem('user')!);
       }
     });
+  }
+
+  async createUserFirestore(user: any){
+    return this.afs.collection('Users').add({...user})
+  }
+
+  private updateuserdata ({uid,nom,prenom,email,password,emailVerified,photoURL,username}: User){
+    const userRef:AngularFirestoreDocument<User>=this.afs.doc(`Users/${uid}`);
+    const data= {uid,
+      nom,
+      prenom,
+      email,
+      password,
+      emailVerified,
+      photoURL,
+      username,
+    };
+    return userRef.set(data, {merge:true});
   }
 
   // Sign in with email/password
@@ -59,6 +91,7 @@ export class AuthService {
         up and returns promise */
         this.SendVerificationMail();
         this.SetUserData(result.user);
+        this.createUserFirestore(result.user);
         window.alert('account created .');
       })
       .catch((error) => {
@@ -122,14 +155,17 @@ export class AuthService {
   provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
   SetUserData(user: any) {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(
-      `users/${user.uid}`
+      `Users/${user.uid}`
     );
     const userData: User = {
       uid: user.uid,
       email: user.email,
-      displayName: user.displayName,
+      username: user.username,
       photoURL: user.photoURL,
       emailVerified: user.emailVerified,
+      nom:user.nom,
+      prenom:user.prenom,
+      password:user.password,
     };
     return userRef.set(userData, {
       merge: true,

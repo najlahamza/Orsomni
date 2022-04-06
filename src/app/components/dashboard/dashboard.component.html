@@ -1,57 +1,125 @@
-<!-- Top navigation -->
-<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-  <a class="navbar-brand col-sm-3 col-md-2 mr-0">
-    <img class="brand-logo" src="assets/logo-positronx-white.svg" alt="positronX.io Logo">
-  </a>
+<nav class="navbar nav-first navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="assets/images/logoorsomni.png" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, Pigga Landing page">
+        </a>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link text-primary" href="#home">Contact US : <span class="pl-2 text-muted">Contact@Orsomni.com</span></a>
+            </li>                   
+        </ul>
+    </div>
 </nav>
 
-<!-- Sidebar navigation -->
-<div class="container-fluid">
-  <div class="row">
-
-    <nav class="col-md-2 d-md-block bg-light sidebar">
-      <div class="sidebar-sticky">
-        <ul class="nav flex-column">
-          <li class="nav-item">
-            <a class="nav-link active">
-              <i class="fas fa-user"></i>User Profile
-            </a>
-          </li>
-          <!-- Calling SignOut() Api from AuthService -->
-          <li class="nav-item">
-            <a class="nav-link" (click)="authService.SignOut()">
-              <i class="fas fa-sign-out-alt"></i>Log out
-            </a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-
-    <!-- Main content -->
-    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-      <div class="inner-adjust">
-
-        <div class="pt-3 pb-2 mb-3 border-bottom">
-          <h1 class="h2">User Profile</h1>
+<!-- Second Navigation -->
+<nav class="nav-second navbar custom-navbar navbar-expand-sm navbar-dark bg-dark sticky-top">
+    <div class="container">
+        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto"> 
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#service">Portraits</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#team">Artists</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#testmonial">something</a>
+                </li>
+            </ul> 
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="components.html" class="btn btn-primary btn-sm" routerLink="/profile" routerLinkActive="active">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a href="components.html" class="btn btn-round btn-sm"(click)="authService.SignOut()">Log Out
+                    </a>
+                </li>
+            </ul>
         </div>
-        <!-- Show user data when logged in -->
-        <div class="row" *ngIf="authService.userData as user">
-          <div class="col-md-12">
-            <div class="media">
-              <img class="align-self-start mr-5 img-thumbnail rounded-circle" src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}"
-                alt="{{user.displayName}}">
-              <div class="media-body">
-                <h1>Hello: <strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></h1>
-                <p>User ID: <strong>{{user.uid}}</strong></p>
-                <p>Email: <strong>{{user.email}}</strong></p>
-                <p>Email Verified: <strong>{{user.emailVerified}}</strong></p>
-              </div>
+    </div>
+</nav>
+<!-- End Of Second Navigation --> 
+<!-- Page Header -->
+<header class="header">
+    <div class="overlay">
+        <img src="assets/images/logoorsomni.png" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, Pigga Landing page" class="logo">
+        <h1 class="subtitle">Welcome To Our Website</h1>
+        <h1 class="title">Discover all kinds of portraits</h1> 
+        <a class="btn btn-primary mt-3" routerLink="/add-artwork" routerLinkActive="active">Add your art</a> 
+    </div>      
+</header>
+
+ <!-- About Section -->
+ <section id="about">
+    <div class="container">
+        <div class="row align-items-center">                
+            <div *ngIf="arts.length > 0 ">
+                <div class="container" *ngFor="let art of arts">
+                    <div class="card" >
+                        <div class="card-header">
+                            <img src="assets/mic.png" alt="rover" />
+                        </div>
+                        <div class="card-body">
+                            <span class="tag tag-teal">{{art.type}}</span>
+                            <h4>
+                                {{art.title}}
+                            </h4>
+                            <p>
+                                {{art.desc}}
+                            </p>
+                        </div>
+                    </div>
+                 </div>
+            </div> 
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Team Section -->
+<section id="team">
+    <div class="container">
+        <h3 class="section-title mb-5 text-center">Top Artists</h3>
+        <div class="row">
+            <div class="col-md-4 my-3">
+                <div class="team-wrapper text-center">
+                    <img src="assets/sophie.png" class="circle-120 rounded-circle mb-3 shadow">
+                    <h5 class="my-3">Najla Hamza</h5>
+                    <p>my description</p>
+                   
+                </div>
             </div>
-          </div>
+            <div class="col-md-4 my-3">
+                <div class="team-wrapper text-center">
+                    <img src="assets/sophie.png" class="circle-120 rounded-circle mb-3 shadow" >
+                    <h5 class="my-3">Linda Bouallegue</h5>
+                    <p>about me</p>
+                    
+                </div>
+            </div>
+            <div class="col-md-4 my-3">
+                <div class="team-wrapper text-center">
+                    <img src="assets/sophie.png" class="circle-120 rounded-circle mb-3 shadow" >
+                    <h5 class="my-3">Eya Rayes</h5>
+                    <p>something</p>
+                    
+                </div>
+            </div> 
         </div>
+    </div>
+</section>
+<!-- End of Team Section -->
 
-      </div>
-    </main>
-
-  </div>
+<!-- 
+<div *ngIf="authService.userData as user">
+    {{user | json}}
 </div>
+-->
+   
