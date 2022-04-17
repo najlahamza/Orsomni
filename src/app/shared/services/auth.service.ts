@@ -13,15 +13,15 @@ import { Observable, of, switchMap } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-  userData: any; // Save logged in user data
+  userData: any;  
 
   user$:Observable<User| null | undefined>;
 
   constructor(
-    public afs: AngularFirestore, // Inject Firestore service
-    public afAuth: AngularFireAuth, // Inject Firebase auth service
+    public afs: AngularFirestore,  
+    public afAuth: AngularFireAuth,  
     public router: Router,
-    public ngZone: NgZone // NgZone service to remove outside scope warning
+    public ngZone: NgZone  
   ) {
 
     this.user$=this.afAuth.authState.pipe(
@@ -48,22 +48,8 @@ export class AuthService {
     });
   }
 
-  async createUserFirestore(user: any){
+   createUserFirestore(user: any){
     return this.afs.collection('Users').add({...user})
-  }
-
-  private updateuserdata ({uid,nom,prenom,email,password,emailVerified,photoURL,username}: User){
-    const userRef:AngularFirestoreDocument<User>=this.afs.doc(`Users/${uid}`);
-    const data= {uid,
-      nom,
-      prenom,
-      email,
-      password,
-      emailVerified,
-      photoURL,
-      username,
-    };
-    return userRef.set(data, {merge:true});
   }
 
   // Sign in with email/password
@@ -72,32 +58,34 @@ export class AuthService {
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
         this.ngZone.run(() => {
-          window.alert('You are logged in seccessfully !');
-          this.router.navigate(['dashboard']);
+          window.alert('You are logged in successfully !');
+          this.router.navigate(['/dashboard']);
         });
         this.SetUserData(result.user);
       })
       .catch((error) => {
-        window.alert(error.message);
+      window.alert(error.message);
       });
   }
 
   // Sign up with email/password
-  SignUp(email: string, password: string) {
+  SignUp(email: string, password: string, nom:string, prenom: string, tel: string,) {
     return this.afAuth
       .createUserWithEmailAndPassword(email, password)
-      .then((result) => {
-        /* Call the SendVerificaitonMail() function when new user sign 
-        up and returns promise */
+      .then((result) => { 
         this.SendVerificationMail();
-        this.SetUserData(result.user);
+        console.log(result.user)
+        this.createUser(result.user,password,nom,prenom,tel);
         this.createUserFirestore(result.user);
-        window.alert('account created .');
+        window.alert('account created successfully');
       })
       .catch((error) => {
+        console.log(error)
         window.alert(error.message);
       });
   }
+
+  
 
   // Send email verfificaiton when new user sign up
   SendVerificationMail() {
@@ -150,6 +138,27 @@ export class AuthService {
       });
   }
 
+
+  createUser(user:any, password:string, nom:string,prenom:string,tel:string) {
+    const userRef: AngularFirestoreDocument<any> = this.afs.doc(
+      `Users/${user.uid}`
+    );
+    const userData: User = {
+      uid: user.uid,
+      email: user.email,
+      photoURL: user.photoURL,
+      emailVerified: user.emailVerified,
+      password:password,
+     // password:user.password,
+      nom:nom,
+      prenom:prenom,
+      tel:tel,
+    };
+    return userRef.set(userData, {
+      merge: true,
+    });
+  }
+
   /* Setting up user data when sign in with username/password, 
   sign up with username/password and sign in with social auth  
   provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
@@ -160,16 +169,17 @@ export class AuthService {
     const userData: User = {
       uid: user.uid,
       email: user.email,
-      username: user.username,
+     // tel: user.tel,
       photoURL: user.photoURL,
       emailVerified: user.emailVerified,
-      nom:user.nom,
-      prenom:user.prenom,
-      password:user.password,
     };
     return userRef.set(userData, {
       merge: true,
     });
+  }
+  
+  getCurrentUser(){
+    return this.afAuth.currentUser;
   }
 
   // Sign out

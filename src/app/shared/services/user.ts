@@ -3,7 +3,7 @@ export interface User {
   email?: string;
   nom?:string;
   prenom?:string;
-  username?: string;
+  tel?:string;
   password?:string;
   photoURL?: string;
   emailVerified?: boolean;

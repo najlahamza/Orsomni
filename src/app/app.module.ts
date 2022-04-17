@@ -24,6 +24,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AuthService } from './shared/services/auth.service';
 import { ArtworkService } from './shared/services/artwork.service';
 import { ProfileComponent } from './components/profile/profile.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { ProfileComponent } from './components/profile/profile.component';
     VerifyEmailComponent,
     AddArtworkComponent,
     ProfileComponent,
+    NavbarComponent,
   ],
   imports: [
     FormsModule,
@@ -46,7 +48,7 @@ import { ProfileComponent } from './components/profile/profile.component';
     AngularFireDatabaseModule,
     AppRoutingModule,
   ],
-  providers: [AuthService,ArtworkService],
+  providers: [AuthService, ArtworkService],
   bootstrap: [AppComponent],
 })
 

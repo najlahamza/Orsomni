@@ -28,11 +28,11 @@ arts :any[];
    
     
    users: User[] = [
-    { uid: "11", username: "Dr Nice",emailVerified:true ,photoURL:"",email:"user@gmail.com" ,nom:"111",prenom:"dddd",password:"000"},
-    { uid: "12", username: "Dr Nice",emailVerified:true ,photoURL:"",email:"user@gmail.com" ,nom:"111",prenom:"dddd",password:"000"},
-    { uid: "13", username: "Dr Nice",emailVerified:true ,photoURL:"",email:"user@gmail.com" ,nom:"111",prenom:"dddd",password:"000"},
-    { uid: "14", username: "Dr Nice",emailVerified:true ,photoURL:"",email:"user@gmail.com" ,nom:"111",prenom:"dddd",password:"000"},
-    { uid: "15", username: "Dr Nice",emailVerified:true ,photoURL:"",email:"user@gmail.com" ,nom:"111",prenom:"dddd",password:"000"},
+    { uid: "11", tel: "Dr Nice",emailVerified:true ,photoURL:"",email:"user@gmail.com" ,nom:"111",prenom:"dddd",password:"000"},
+    { uid: "12", tel: "Dr Nice",emailVerified:true ,photoURL:"",email:"user@gmail.com" ,nom:"111",prenom:"dddd",password:"000"},
+    { uid: "13", tel: "Dr Nice",emailVerified:true ,photoURL:"",email:"user@gmail.com" ,nom:"111",prenom:"dddd",password:"000"},
+    { uid: "14", tel: "Dr Nice",emailVerified:true ,photoURL:"",email:"user@gmail.com" ,nom:"111",prenom:"dddd",password:"000"},
+    { uid: "15", tel: "Dr Nice",emailVerified:true ,photoURL:"",email:"user@gmail.com" ,nom:"111",prenom:"dddd",password:"000"},
    
   ];
 
@@ -42,7 +42,7 @@ artworkRef: AngularFirestoreCollection<Artwork>;
  
   constructor(public authService: AuthService, private firestore: AngularFirestore, public artservice: ArtworkService, public router: Router) {
     this.artworkRef = this.firestore.collection<Artwork>('Artwork');
-    this.arts= [];
+    this.arts= []; 
     //artwork: new AngularFirestoreDocument<any>();
     //this.artwork = db.doc('tutorial');
 

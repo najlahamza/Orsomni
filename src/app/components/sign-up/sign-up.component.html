@@ -9,6 +9,34 @@
 
       <div class="formGroup">
         <input
+          type="text"
+          class="formControl"
+          placeholder="First Name"
+          #userFirstName
+          required
+        />
+      </div>
+      <div class="formGroup">
+        <input
+          type="text"
+          class="formControl"
+          placeholder="Family Name"
+          #userFamilyName
+          required
+        />
+      </div>
+      <div class="formGroup">
+        <input
+          type="tel"
+          class="formControl"
+          placeholder="Phone Number"
+          #userTel
+          required
+        />
+      </div>
+
+      <div class="formGroup">
+        <input
           type="email"
           class="formControl"
           placeholder="Email Address"
@@ -32,7 +60,7 @@
           type="button"
           class="btn btnPrimary"
           value="Sign Up"
-          (click)="authService.SignUp(userEmail.value, userPwd.value)"
+          (click)="authService.SignUp(userEmail.value, userPwd.value,userFirstName.value,userFamilyName.value,userTel.value)"
         />
       </div>
 
