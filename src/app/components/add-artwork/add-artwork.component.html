@@ -1,5 +1,6 @@
 
 	<body>
+		<app-navbar></app-navbar>
 
 		<div *ngIf="auth.user$ | async as user">
 				{{user | json}}
@@ -32,19 +33,13 @@
 												</div>
 											</div>
 											<div class="col-md-6"> 
-												<div class="form-group">
-													<label class="label" for="Type">type</label>
-                          <div>
-													<input type="radio" name="type" id="TypeDigital" value="Digital" >
-                          <label for="TypeDigital" [(ngModel)]="artwork.type" >Digital</label>
-                          </div>
-                          <div>
-                          <input type="radio"  name="type" id="TypePencil" value="Pencil">
-                          <label  for="TypePencil" [(ngModel)]="artwork.type" >Pencil</label>
-                          </div>
-												</div>
+												<label class="label" for="Type">type</label>
+													<div class="form-group" *ngFor="let t of types">		
+															<input type="radio" name="type" id="Type" [(ngModel)]="artwork.type" value={{t}}>	
+															{{t}}												
+													</div>
 											</div>
-                      <div class="col-md-6">
+										<div class="col-md-6">
 												<div class="form-group">
 													<label class="label" for="Price">Price (DT)</label>
 													<input type="text" class="form-control" name="Price" id="Price" placeholder="Price" [(ngModel)]="artwork.price" required>
@@ -53,7 +48,7 @@
 											<div class="col-md-12">
 												<div class="form-group">
 													<label class="label" for="Photo">Photo </label>
-													<input type="file" accept="image/png, image/jpeg, image/jpg" class="form-control" name="Photo" id="Photo" [(ngModel)]="artwork.photo" required>
+													<input type="file" accept="image/png, image/jpeg, image/jpg" (change)="fileChangeEvent($event)" class="form-control" name="Photo" id="Photo" [(ngModel)]="artwork.photo" required>
 												</div>
 											</div>                    
 											<div class="col-md-12">
@@ -63,8 +58,8 @@
 												</div>
 											</div>
 											<div class="col-md-12">
-												<div class="form-group">
-													<button (click)="addArtwork()" class="btn btn-outline-info" >Submit</button> 
+												<div class="form-group" >
+													<button (click)="addArtwork()" class="btn " style="background-color: darkturquoise; color: aliceblue;">Submit</button> 
 													<div class="submitting"></div>
 												</div>
 											</div>

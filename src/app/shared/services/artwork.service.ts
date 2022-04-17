@@ -23,7 +23,7 @@ import { Observable } from 'rxjs';
         return this.firestore.collection('Artwork').add({...data, uid:user?.uid })
     }
     
-    
+     
     getAll(): AngularFirestoreCollection<Artwork> {
       return this.artworksRef;
     }
