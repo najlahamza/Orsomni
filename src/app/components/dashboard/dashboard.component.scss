@@ -60,6 +60,31 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block;
 }
 
+
+.sous-titre{
+  height: 150px;
+  margin: 50px;
+}
+.titre{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: #343a40;
+  font-weight: 500;
+  font-size: 100px;
+}
+
+.title{
+  font-size: calc(15px + (18 - 15) * ((100vw - 320px) / (1200 - 320)));
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+.profile{
+  object-fit: none; 
+  object-position: center;
+  height: 100px;
+  width: 100px;
+}
+
 body {
   margin: 0;
   font-family: "Fira Sans", sans-serif;
@@ -603,8 +628,8 @@ pre code {
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
+  margin-right: -10px;
+  margin-left: -10px;
 }
 
 .no-gutters {
@@ -5061,6 +5086,8 @@ input[type="button"].btn-block {
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
+  display: flex;
+  justify-content: space-between;
 }
 
 .card > hr {

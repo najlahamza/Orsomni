@@ -4,14 +4,15 @@
     
         <div class="overlay">
         <img src="assets/images/logoorsomni.png"  class="logo">
-        <h1 class="subtitle">Welcome To Our Website</h1>
         <h1 class="title">Discover all kinds of portraits</h1> 
-        <a class="btn btn-primary mt-3" routerLink="/add-artwork" routerLinkActive="active">Add your art</a> 
+        <a class="btn btn-danger mt-3" routerLink="/add-artwork" routerLinkActive="active">Add your art</a> 
         </div>
         
 </header>
 
- <!-- About Section -->
+ 
+
+  <!-- artworks 
  <section id="about">
     <div class="container">
         <div class="row align-items-center">                
@@ -19,7 +20,7 @@
                 <div  *ngFor="let art of arts">
                     <div class="card" >
                         <div class="card-header">
-                            <img src="assets/mic.png" alt="rover" />
+                            <img src="assets/mic.png" alt="rover"  />
                         </div>
                         <div class="card-body">
                             <span class="tag tag-teal">{{art.type}}</span>
@@ -35,18 +36,29 @@
             </div> 
         </div>
     </div>
-</section>
+</section> -->
+<div class="sous-titre">
+    <h1 class="titre text-center">Recently updated</h1>
+</div>
+
+<div style="width: 100%;">
+<app-art-cards></app-art-cards>
+</div>
 
 
 
 <!-- Team Section -->
 <section id="team">
     <div class="container">
-        <h3 class="section-title mb-5 text-center">Top Artists</h3>
+        <div class="sous-titre">
+            <h1 class="titre text-center">Top Artists</h1>
+        </div>
         <div class="row">
             <div class="col-md-4 my-3">
                 <div class="team-wrapper text-center">
-                    <img src="assets/sophie.png" class="circle-120 rounded-circle mb-3 shadow">
+                    <div  >
+                        <img src="assets/audra.png" class="circle-120 rounded-circle mb-3 shadow">
+                    </div>
                     <h5 class="my-3">Najla Hamza</h5>
                     <p>my description</p>
                    
@@ -54,7 +66,7 @@
             </div>
             <div class="col-md-4 my-3">
                 <div class="team-wrapper text-center">
-                    <img src="assets/sophie.png" class="circle-120 rounded-circle mb-3 shadow" >
+                    <img src="assets/arya.jpg" class=" circle-120 rounded-circle mb-3 shadow" >
                     <h5 class="my-3">Linda Bouallegue</h5>
                     <p>about me</p>
                     
@@ -71,6 +83,7 @@
         </div>
     </div>
 </section>
+<app-footer></app-footer>
 <!-- End of Team Section -->
 
 <!-- 

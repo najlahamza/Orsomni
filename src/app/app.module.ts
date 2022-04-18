@@ -25,6 +25,11 @@ import { AuthService } from './shared/services/auth.service';
 import { ArtworkService } from './shared/services/artwork.service';
 import { ProfileComponent } from './components/profile/profile.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { ViewArtComponent } from './components/view-art/view-art.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { ArtCardsComponent } from './components/art-cards/art-cards.component';
+import { ArtistsComponent } from './components/artists/artists.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +42,11 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     AddArtworkComponent,
     ProfileComponent,
     NavbarComponent,
+    ViewArtComponent,
+    FooterComponent,
+    ArtCardsComponent,
+    ArtistsComponent,
+    ContactComponent,
   ],
   imports: [
     FormsModule,

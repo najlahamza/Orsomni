@@ -48,6 +48,22 @@
   
   article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
     display: block; }
+
+
+
+    .sous-titre{
+      height: 150px;
+    }
+    .titre{
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      color: #343a40;
+      font-weight: 600;
+      font-size: 60px;
+      text-align: center !important;
+    }
+    
+
+
   
   body {
     margin: 0;
@@ -448,10 +464,12 @@
   
   .container {
     width: 100%;
+    height: 100%;
     padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;
-    margin-left: auto; }
+    margin-left: auto; 
+  }
     @media (min-width: 576px) {
       .container {
         max-width: 540px; } }

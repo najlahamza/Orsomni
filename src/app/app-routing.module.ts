@@ -7,6 +7,10 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 import { AddArtworkComponent } from './components/add-artwork/add-artwork.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { ArtCardsComponent } from './components/art-cards/art-cards.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { ArtistsComponent } from './components/artists/artists.component';
+import { ViewArtComponent } from './components/view-art/view-art.component';
 
 // route guard
 import { AuthGuard } from './shared/guard/auth.guard';
@@ -20,6 +24,10 @@ const routes: Routes = [
   { path: 'verify-email-address', component: VerifyEmailComponent },
   { path: 'add-artwork', component: AddArtworkComponent, canActivate: [AuthGuard] },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+  { path: 'contact', component: ContactComponent, canActivate: [AuthGuard] },
+  { path: 'artists', component: ArtistsComponent, canActivate: [AuthGuard] },
+  { path: 'view-art', component: ViewArtComponent, canActivate: [AuthGuard] },
+  
 ];
 
 @NgModule({
