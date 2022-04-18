@@ -5,7 +5,7 @@
         </a>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link text-primary" href="#home">Contact US : <span class="pl-2 text-muted">Contact@Orsomni.com</span></a>
+                <a class="nav-link text-info" routerLink="/contact" routerLinkActive="active">Contact US : <span class="pl-2 text-muted">Contact@Orsomni.com</span></a>
             </li>                   
         </ul>
     </div>
@@ -20,21 +20,21 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto"> 
                 <li class="nav-item">
-                    <a class="nav-link"  >Home</a>
+                    <a class="nav-link text-light" routerLink="/dashboard" routerLinkActive="active" >Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link"  >About us</a>
+                    <a class="nav-link text-light" routerLink="/dashboard" routerLinkActive="active" >Portraits</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" >Artists</a>
+                    <a class="nav-link text-light" routerLink="/artists" routerLinkActive="active" >Artists</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link">Portraits</a>
+                    <a class="nav-link text-light" routerLink="/contact" routerLinkActive="active">Contact</a>
                 </li>
             </ul> 
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a href="components.html" class="btn btn-primary btn-sm" routerLink="/profile" routerLinkActive="active">Profile</a>
+                    <a href="components.html" class="btn btn-info btn-sm " style="color: black;" routerLink="/profile" routerLinkActive="active">Profile</a>
                 </li>
                 <li class="nav-item">
                     <a href="components.html" class="btn btn-round btn-sm"(click)="auth.SignOut()">Log Out
