@@ -2635,7 +2635,8 @@
   .form-text {
     margin-top: 0.25rem;
     font-size: 0.875em;
-    color: #6c757d;
+    color: #e573aa;
+
   }
   
   /* line 5, src/assets/scss/forms/_form-control.scss */
@@ -2649,7 +2650,7 @@
     color: #212529;
     background-color: #fff;
     background-clip: padding-box;
-    border: 1px solid #ced4da;
+    border: 1px solid #e573aa;
     -webkit-appearance: none;
        -moz-appearance: none;
             appearance: none;
@@ -2680,12 +2681,12 @@
   
   /* line 34, src/assets/scss/forms/_form-control.scss */
   .form-control:focus {
-    color: #212529;
+    color: black;
     background-color: #fff;
-    border-color: #a199e1;
+    border-color: #e573aa;
     outline: 0;
-    -webkit-box-shadow: 0 0 0 0.25rem rgba(66, 50, 194, 0.25);
-            box-shadow: 0 0 0 0.25rem rgba(66, 50, 194, 0.25);
+    -webkit-box-shadow: 0 0 0 0.25rem #e573aa;
+            box-shadow: 0 0 0 0.25rem #e573aa;
   }
   
   /* line 50, src/assets/scss/forms/_form-control.scss */
@@ -3928,22 +3929,22 @@
   /* line 59, src/assets/scss/_buttons.scss */
   .btn-danger {
     color: #000;
-    background-color: #dc3545;
-    border-color: #dc3545;
+    background-color: #539fbd;
+    border-color: #539fbd;
   }
   
   /* line 25, src/assets/scss/mixins/_buttons.scss */
   .btn-danger:hover {
     color: #000;
-    background-color: #e15361;
-    border-color: #e04958;
+    background-color: #539fbd;
+    border-color: #539fbd;
   }
   
   /* line 31, src/assets/scss/mixins/_buttons.scss */
   .btn-check:focus + .btn-danger, .btn-danger:focus {
     color: #000;
-    background-color: #e15361;
-    border-color: #e04958;
+    background-color: #539fbd;
+    border-color: #539fbd;
     -webkit-box-shadow: 0 0 0 0.25rem rgba(187, 45, 59, 0.5);
             box-shadow: 0 0 0 0.25rem rgba(187, 45, 59, 0.5);
   }
@@ -3953,8 +3954,8 @@
   .btn-check:active + .btn-danger, .btn-danger:active, .btn-danger.active,
   .show > .btn-danger.dropdown-toggle {
     color: #000;
-    background-color: #e35d6a;
-    border-color: #e04958;
+    background-color: #539fbd;
+    border-color: #539fbd;
   }
   
   /* line 55, src/assets/scss/mixins/_buttons.scss */
@@ -3968,8 +3969,8 @@
   /* line 65, src/assets/scss/mixins/_buttons.scss */
   .btn-danger:disabled, .btn-danger.disabled {
     color: #000;
-    background-color: #dc3545;
-    border-color: #dc3545;
+    background-color: #539fbd;
+    border-color: #539fbd;
   }
   
   /* line 59, src/assets/scss/_buttons.scss */
@@ -9525,7 +9526,11 @@
   
   /* line 50, src/assets/scss/mixins/_utilities.scss */
   .text-danger {
-    color: #dc3545 !important;
+    color: #e573aa !important;
+   
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 40px;
   }
   
   /* line 50, src/assets/scss/mixins/_utilities.scss */

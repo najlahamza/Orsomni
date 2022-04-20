@@ -30,6 +30,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ArtCardsComponent } from './components/art-cards/art-cards.component';
 import { ArtistsComponent } from './components/artists/artists.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { CardrequestComponent } from './components/cardrequest/cardrequest.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { ContactComponent } from './components/contact/contact.component';
     ArtCardsComponent,
     ArtistsComponent,
     ContactComponent,
+    CardrequestComponent,
   ],
   imports: [
     FormsModule,
