@@ -2,35 +2,61 @@
 <!-- Page Header -->
 <header class="header">
     <div class="overlay">
-        <img src="assets/mic.png" class="logo" (click)="getUser()">
+        <img src="assets/najla.png" class="logo" (click)="getUser()">
         <!--<h1 class="subtitle">Welcome To Our Website</h1>-->
-        <h1 class="title">User Name </h1> 
+        <h1 class="title">Najla Hamza </h1> 
         <a class="btn btn-danger mt-3" routerLink="/add-artwork" routerLinkActive="active">Add Art</a> 
     </div>      
 </header>
 
-<div class="service-tag py-5" style="background-color: white;">
-	<div class="col-md-12" >
-		<ul class="nav d-flex justify-content-center">
-			<li class="nav-item mx-lg-4">
-				<a class="filter-btn nav-link btn-info rounded-pill   px-4 light-300 ">My artworks</a>
-			</li>
-			<li class="nav-item mx-lg-4">
-				<a class="filter-btn nav-link btn-info rounded-pill   px-4 light-300"  >Pending requests</a>
-			</li>
-			<li class="filter-btn nav-item mx-lg-4">
-				<a class="filter-btn nav-link btn-info rounded-pill  px-4 light-300"  >Sent requests</a>
-			</li>
-		
-		</ul>
+
+<div class="tabs">
+	<nav class="tabs__nav">
+		<a
+			(click)="show( 'one' )"
+			class="tabs__nav-item"
+			[class.tabs__nav-item--on]="( selectedTab === 'one' )">
+			My Artworks
+		</a>
+		<a
+			(click)="show( 'two' )"
+			class="tabs__nav-item"
+			[class.tabs__nav-item--on]="( selectedTab === 'two' )">
+			Pending requests
+		</a>
+		<a
+			(click)="show( 'three' )"
+			class="tabs__nav-item"
+			[class.tabs__nav-item--on]="( selectedTab === 'three' )">
+			Sent requests
+		</a>
+	</nav>
+	<div #tabsContentRef class="tabs__content" [ngSwitch]="selectedTab">
+		<div *ngSwitchCase="( 'one' )" class="tabs__tab">
+			
+			
+			<h1 class="titre">My Artworks</h1>
+			<div style="width: 100%; height: auto;">
+				<app-art-cards></app-art-cards>
+			</div>
+
+
+		</div>
+		<div *ngSwitchCase="( 'two' )" class="tabs__tab">
+			
+				<app-cardrequest></app-cardrequest>
+
+
+		</div>
+		<div *ngSwitchCase="( 'three' )" class="tabs__tab">
+			
+			<app-cardrequest></app-cardrequest>
+
+
+		</div>
 	</div>
-</div>
-	<h1 class="titre">My Artworks</h1>
+</div>	
 
 
-
-<div style="width: 100%; height: auto;">
-	<app-art-cards></app-art-cards>
-</div>
 	
  
