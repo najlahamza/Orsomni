@@ -67,7 +67,7 @@ export class AddArtworkComponent implements OnInit {
   addArtwork(): void {
     this.ArtworkService.create(this.artwork).then(() => {
 
-      console.log('Created new item successfully!');
+      window.alert('Added new Artwork successfully!');
     })
     .catch((error: any) => {
       window.alert(error);

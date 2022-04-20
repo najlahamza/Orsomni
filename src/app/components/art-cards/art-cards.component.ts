@@ -45,5 +45,9 @@ export class ArtCardsComponent implements OnInit {
     } );
     console.log(this.arts.length);
   }
+
+  DeleteArtwork(id:string){
+    this.artservice.deleteArtwork(id);
+  }
   
 }

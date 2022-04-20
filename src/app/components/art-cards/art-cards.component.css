@@ -79,7 +79,11 @@ vertical-align: middle;
     background-color: #47bcd4;
   }
 
-
+  .delete{
+	width: 20px; height: 20px; border-radius: 50%; background-image: url('src/assets/images/delete.png');
+	background-color: #ef5350;
+	cursor: pointer;
+  }
 
 body, html {
 	height: 100%;
