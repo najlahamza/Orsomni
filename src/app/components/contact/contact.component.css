@@ -9620,8 +9620,7 @@
   
   /* line 50, src/assets/scss/mixins/_utilities.scss */
   .bg-light {
-    background-color: #f6f9fe !important;
-  }
+    background-image: url('/assets/images/logo1.png');  }
   
   /* line 50, src/assets/scss/mixins/_utilities.scss */
   .bg-dark {

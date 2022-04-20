@@ -30,37 +30,47 @@
 											<div class="col-md-12">
 												<div class="form-group">
 													<label class="label" for="Title">Title</label>
+													<br>
 													<input type="text" class="form-control" name="Title" id="Title" placeholder="Title" [(ngModel)]="artwork.title" required>
+													<br>
 												</div>
 											</div>
 											<div class="col-md-6"> 
 												<label class="label" for="Type">type</label>
+												<br>
 													<div class="form-group" *ngFor="let t of types">		
 															<input type="radio" name="type" id="Type" [(ngModel)]="artwork.type" value={{t}}>	
-															{{t}}												
+															{{t}}	
+															<br>											
 													</div>
 											</div>
 										<div class="col-md-6">
 												<div class="form-group">
 													<label class="label" for="Price">Price (DT)</label>
+													<br>
 													<input type="text" class="form-control" name="Price" id="Price" placeholder="Price" [(ngModel)]="artwork.price" required>
+													<br>
 												</div>
 											</div>
 											<div class="col-md-12">
 												<div class="form-group">
 													<label class="label" for="Photo">Photo </label>
+													<br>
 													<input type="file" accept="image/png, image/jpeg, image/jpg" (change)="fileChangeEvent($event)" class="form-control" name="Photo" id="Photo" [(ngModel)]="artwork.photo" required>
+													<br>
 												</div>
 											</div>                    
 											<div class="col-md-12">
 												<div class="form-group">
 													<label class="label" for="#">Description</label>
+													<br>
 													<textarea name="Description" class="form-control" id="Description" cols="30" rows="4" placeholder="Description" [(ngModel)]="artwork.desc" required></textarea>
+												<br>
 												</div>
 											</div>
 											<div class="col-md-12">
 												<div class="form-group" >
-													<button (click)="addArtwork()" class="btn " style="background-color: darkturquoise; color: aliceblue;">Submit</button> 
+													<button (click)="addArtwork()" class="btn " style="background-color: #539fbd; color: aliceblue;    margin-left: 50%;;">Submit</button> 
 													<div class="submitting"></div>
 												</div>
 											</div>
