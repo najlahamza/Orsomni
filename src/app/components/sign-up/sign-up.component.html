@@ -1,7 +1,39 @@
 <div class="displayTable">
   <div class="displayTableCell">
+    <div class="logo">
+      
+      <img class="imagelogo" alt="centered image" src="assets/images/logoorsomni.png"/>
+    </div>
     <div class="authBlock">
       <h3>Sign Up</h3>
+
+      <div class="formGroup">
+        <input
+          type="text"
+          class="formControl"
+          placeholder="First Name"
+          #userFirstName
+          required
+        />
+      </div>
+      <div class="formGroup">
+        <input
+          type="text"
+          class="formControl"
+          placeholder="Family Name"
+          #userFamilyName
+          required
+        />
+      </div>
+      <div class="formGroup">
+        <input
+          type="tel"
+          class="formControl"
+          placeholder="Phone Number"
+          #userTel
+          required
+        />
+      </div>
 
       <div class="formGroup">
         <input
@@ -28,7 +60,7 @@
           type="button"
           class="btn btnPrimary"
           value="Sign Up"
-          (click)="authService.SignUp(userEmail.value, userPwd.value)"
+          (click)="authService.SignUp(userEmail.value, userPwd.value,userFirstName.value,userFamilyName.value,userTel.value)"
         />
       </div>
 
