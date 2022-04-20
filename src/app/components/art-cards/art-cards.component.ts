@@ -4,7 +4,7 @@ import { User } from '../../shared/services/user';
 import {AngularFirestore,AngularFirestoreDocument,AngularFirestoreCollection} from '@angular/fire/compat/firestore';
 import { Artwork } from 'src/app/shared/services/artwork';
 import { ArtworkService } from 'src/app/shared/services/artwork.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-art-cards',
@@ -26,7 +26,7 @@ export class ArtCardsComponent implements OnInit {
 
   artworkRef: AngularFirestoreCollection<Artwork>;
  
-  constructor(public authService: AuthService, private firestore: AngularFirestore, public artservice: ArtworkService, public router: Router) {
+  constructor(public authService: AuthService, private firestore: AngularFirestore, public artservice: ArtworkService, public router: ActivatedRoute) {
     this.artworkRef = this.firestore.collection<Artwork>('Artwork');
     this.arts= []; 
     //artwork: new AngularFirestoreDocument<any>();
@@ -39,6 +39,11 @@ export class ArtCardsComponent implements OnInit {
     }
 
   ngOnInit(): void {
+
+   /* this.router.queryParams.pipe(params => {
+      this.name = params['name'];
+    });*/
+
     this.firestore.collection('Artwork').get().subscribe(querysnapshot => {
         console.log();
         this.arts = querysnapshot.docs.map(doc => doc.data());
