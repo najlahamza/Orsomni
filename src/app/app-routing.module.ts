@@ -11,6 +11,7 @@ import { ArtCardsComponent } from './components/art-cards/art-cards.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ArtistsComponent } from './components/artists/artists.component';
 import { ViewArtComponent } from './components/view-art/view-art.component';
+import { CardrequestComponent } from './components/cardrequest/cardrequest.component';
 
 // route guard
 import { AuthGuard } from './shared/guard/auth.guard';
@@ -27,6 +28,8 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent, canActivate: [AuthGuard] },
   { path: 'artists', component: ArtistsComponent, canActivate: [AuthGuard] },
   { path: 'view-art', component: ViewArtComponent, canActivate: [AuthGuard] },
+  { path: 'cardrequest', component: CardrequestComponent, canActivate: [AuthGuard] },
+
   
 ];
 
