@@ -14,7 +14,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 export class ArtCardsComponent implements OnInit {
 
   arts :any[];
-
+ 
   successMsg = 'Data successfully saved.';
 
   artwork: Artwork =

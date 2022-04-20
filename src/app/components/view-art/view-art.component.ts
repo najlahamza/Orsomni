@@ -11,5 +11,7 @@ export class ViewArtComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  Request(){
+    window.alert("Request sent successfully!")
+  }
 }
