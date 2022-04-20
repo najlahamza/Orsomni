@@ -31,6 +31,7 @@ import { ArtCardsComponent } from './components/art-cards/art-cards.component';
 import { ArtistsComponent } from './components/artists/artists.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { CardrequestComponent } from './components/cardrequest/cardrequest.component';
+import { CardpendingComponent } from './components/cardpending/cardpending.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { CardrequestComponent } from './components/cardrequest/cardrequest.compo
     ArtistsComponent,
     ContactComponent,
     CardrequestComponent,
+    CardpendingComponent,
   ],
   imports: [
     FormsModule,
