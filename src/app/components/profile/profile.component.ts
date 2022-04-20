@@ -18,14 +18,29 @@ export class ProfileComponent implements OnInit {
   userRef: any;
   public id:any;
   public user:any;
+  public selectedTab: "one" | "two" | "three";
+	public tabsContentRef!: any ; // Using "definite assignment" assertion (query).
+
 
   constructor(public auth : AngularFireAuth ,public authService: AuthService, private firestore: AngularFirestore) { 
     this.userRef = firestore.collection('/Users');
     
+    this.selectedTab = "one";
 
     this.id="2JwcuGLiheXudCZNyO6oqaBQ0g02";
   }
 
+
+  public show( tab: "one" | "two" | "three" ) : void {
+
+		this.selectedTab = tab;
+		this.scrollTabContentToTop();
+
+	}
+
+	private scrollTabContentToTop() : void {
+		this.tabsContentRef.nativeElement.scrollTo( 0, 0 );
+	}
 
   async getUser(){
 

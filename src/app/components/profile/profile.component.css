@@ -17,6 +17,47 @@ Table of contents
 8. Contact
 --------------------------------------------- */
 
+:host {
+	display: block ;
+	font-size: 18px ;
+}
+
+.tabs {
+  margin-left: 10%;
+  margin-top: 80px;
+	width: 80% ;
+}
+	.tabs__nav {
+		display: flex ;
+    margin-left: 30%;
+    
+	}
+
+	.tabs__nav-item {
+		background-color: #539fbd ;
+		cursor: pointer ;
+		margin-right: 50px ;
+    border-radius: 50rem;
+		padding: 10px 25px 10px 25px ;
+    		
+	}
+
+	.tabs__content {
+		border: 0px solid #cccccc ;
+		border-top-width: 0px ;
+		height: 100% ;
+		overflow: auto ;
+		padding: 25px 25px 25px 25px ;
+	}
+
+	.tabs__tab {
+			margin-top: 0px ;		
+			margin-bottom: 0px ;
+		}
+
+
+
+
 .section-color{
   background-color: #000;
   text-decoration: var(--dark);
@@ -11570,7 +11611,9 @@ hr {
 }
 
 .header .overlay .logo {
+  background-size: cover;
   width: 200px;
+  height: 200px;
   margin-bottom: 30px;
   border-radius: 50%;
   border-color: var(--cyan);

@@ -40,7 +40,7 @@ export class ArtCardsComponent implements OnInit {
 
   ngOnInit(): void {
 
-   /* this.router.queryParams.pipe(params => {
+   /*this.router.queryParams.pipe(params => {
       this.name = params['name'];
     });*/
 
