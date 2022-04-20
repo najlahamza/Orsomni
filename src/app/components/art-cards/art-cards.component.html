@@ -4,14 +4,14 @@
         <div  *ngFor="let art of arts">
             <div class="col-md-3"  >
 
-            <div class="card-view" routerLink="/view-art" routerLinkActive="active">
+            <div class="card-view" >
                 <div class='bg' >
                 </div>
                 <div class="container">
                  <div class="tag_name" style="color: palevioletred;">{{art.title}}</div> 
                  <span class="tag tag-teal">{{art.type}}</span>
                 <div class="company">
-                    <div class="card-header">
+                    <div class="card-header"  routerLink="/view-art" routerLinkActive="active">
                         <img src="assets/mic.png" alt="rover" class="art-img" />
                     </div>
                     
@@ -28,6 +28,7 @@
                     <div class="user_info">
                     <a href="#" class="user_name orange">{{art.title}}</a> • May 30, 2015
                     </div>
+                   
                 </div> <!-- end .user -->
                 </div> <!-- end .container -->
             </div> <!-- end card -->

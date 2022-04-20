@@ -11,16 +11,17 @@ import { Observable } from 'rxjs';
 
     private dbPath = 'Artwork';
     artworksRef: AngularFirestoreCollection<Artwork> ;
+    artworkDoc: AngularFirestoreDocument<Artwork>| undefined;
    // artworks : Observable<Artwork[]> ;
     
     constructor(private fbauth:AngularFireAuth , public firestore: AngularFirestore) {
      // this.artworks=this.firestore.collection('Artwork').valueChanges();
-      this.artworksRef = firestore.collection(this.dbPath);
+      this.artworksRef = firestore.collection(this.dbPath,ref=> ref.orderBy('title','asc'));
     }
 
     async createAtrwork(data: Artwork){
         const user=await this.fbauth.currentUser;
-        return this.firestore.collection('Artwork').add({...data, uid:user?.uid })
+        return this.firestore.collection('Artwork').add({...data, uid:user?.uid , artid:data.artid})
     }
     
      
@@ -36,7 +37,8 @@ import { Observable } from 'rxjs';
       return this.artworksRef.doc(id).update(data);
     }
     
-    delete(id: string): Promise<void> {
-      return this.artworksRef.doc(id).delete();
+    deleteArtwork(art_title:string): Promise<void> {
+      console.log(art_title);
+      return this.artworksRef.doc('${Artwork.title}').delete();
     }
   }

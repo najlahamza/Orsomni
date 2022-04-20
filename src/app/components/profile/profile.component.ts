@@ -16,14 +16,14 @@ import { userInfo } from 'os';
 })
 export class ProfileComponent implements OnInit {
   userRef: any;
-  public id:string;
+  public id:any;
   public user:any;
 
   constructor(public auth : AngularFireAuth ,public authService: AuthService, private firestore: AngularFirestore) { 
     this.userRef = firestore.collection('/Users');
     
 
-    this.id="";
+    this.id="2JwcuGLiheXudCZNyO6oqaBQ0g02";
   }
 
 
@@ -43,20 +43,31 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.getUser();
+    //this.getUser();
+
     
     const { currentUser } = this.auth;
-  console.log('Currently logged in user', currentUser);
-    this.auth.onAuthStateChanged(function(user) {
+      console.log('Currently logged in user', currentUser);
+     this.auth.onAuthStateChanged(function(user) {
       if (user) {
 
         console.log(user.uid)
-
         
-
        } else {
         console.log("nothing")
       }
+    });
+
+
+    var query = this.userRef.where('uid','==',this.id).get()
+    .then((snapshot: { id: any; data: () => any; }[])  => {
+        snapshot.forEach((doc: { id: any; data: () => any; }) => {
+
+            console.log(doc.id, '=>', doc.data());
+        });
+    })
+    .catch((err: any) => {
+        console.log('Error getting documents', err);
     });
     
     

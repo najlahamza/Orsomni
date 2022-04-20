@@ -5,4 +5,5 @@ export interface Artwork {
           type?: string,
           price?: number,
           photo?: string,
+          uid?:string,
     }
