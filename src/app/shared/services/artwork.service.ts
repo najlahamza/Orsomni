@@ -12,11 +12,9 @@ import { Observable } from 'rxjs';
     private dbPath = 'Artwork';
     artworksRef: AngularFirestoreCollection<Artwork> ;
     artworkDoc: AngularFirestoreDocument<Artwork>| undefined;
-   // artworks : Observable<Artwork[]> ;
-    
+     
     constructor(private fbauth:AngularFireAuth , public firestore: AngularFirestore) {
-     // this.artworks=this.firestore.collection('Artwork').valueChanges();
-      this.artworksRef = firestore.collection(this.dbPath,ref=> ref.orderBy('title','asc'));
+       this.artworksRef = firestore.collection(this.dbPath,ref=> ref.orderBy('title','asc'));
     }
 
     async createAtrwork(data: Artwork){
